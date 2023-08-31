@@ -11,8 +11,9 @@
     <v-icon
       size="large"
       color="blue-darken-2"
-      icon="mdi-message-text"
+      icon="mdi-dumbbell"
     ></v-icon>
+    
 
     <input placeholder="Digite o email" v-model="email" />
 
@@ -49,7 +50,7 @@ export default {
       if (this.errorInputEmail === '' && this.errorInputPassword === '') {
         
         axios({
-          url: 'http://localhost:3000/api/login',
+          url: 'http://localhost:3000/sessions',
           method: 'POST',
           data: {
             email: this.email,
@@ -58,8 +59,8 @@ export default {
         })
         .then((response) => {
           
-          localStorage.setItem("instagram_token", response.data.token)
-          localStorage.setItem("instagram_name", response.data.name)
+          localStorage.setItem("gym_token", response.data.token)
+          localStorage.setItem("gym_name", response.data.name)
 
           this.$router.push('/home')
           console.log("logado com sucesso")
