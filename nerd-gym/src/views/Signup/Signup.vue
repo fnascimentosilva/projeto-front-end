@@ -77,8 +77,10 @@
     </div>
 
     
-
-    <button>Criar conta</button>
+    <button>Cadastrar</button>
+   
+    <v-btn variant="tonal" :width="140" ><router-link to="/"> Voltar</router-link></v-btn>
+    
   </form>
 </template>
 
@@ -152,36 +154,7 @@ export default {
             }
           })
 
-        /* fetch('http://localhost:3000/api/register', {
-          method: 'POST',
-          body: JSON.stringify({
-            name: this.name,
-            email: this.email,
-            phone: this.phone,
-            password: this.password,
-            confirmPassword: this.confirmPassword,
-            confirmTerms: this.confirmTerms,
-            sponsor: this.sponsor,
-            bio: this.bio,
-            planType: this.planType
-          }),
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }) */
-        /* .then((response) => {
-            if (!response.ok === false) {
-              throw new Error()
-            }
-            return response.json()
-            
-          })
-          .then((response) =>{
-            alert('Cadastrado com sucesso')
-          })
-          .catch(() => {
-            alert('Houve uma falha ao tentar cadastrar')
-          }) */
+        
       } catch (error) {
         if (error instanceof yup.ValidationError) {
           //capturar os erros do yup
@@ -256,10 +229,10 @@ export default {
   border-color: red;
 }
 
-button {
+/* button {
   width: 80%;
   height: 54px;
-  background-color: #3578e5;
+  background-color: purple;
 
   color: white;
   font-size: 18px;
@@ -269,5 +242,5 @@ button {
 
 button:hover {
   background-color: #286ee0;
-}
+} */
 </style>
