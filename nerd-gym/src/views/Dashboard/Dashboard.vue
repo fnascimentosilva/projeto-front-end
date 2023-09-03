@@ -19,9 +19,11 @@
     </v-card-item>
 
     <v-card-actions>
+      <router-link to="/cadastroAluno">
       <v-btn variant="tonal" color="purple">
         Adicionar
       </v-btn>
+      </router-link>
     </v-card-actions>
   </v-card>
   <v-card
