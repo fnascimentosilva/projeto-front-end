@@ -61,17 +61,17 @@
       <p>Selecione um tipo de plano:</p>
 
       <div class="form-radio">
-        <input id="bronze" type="radio" value="1" v-model="planType" />
+        <input id="bronze" type="radio" value="bronze" v-model="planType" />
         <label for="bronze">Bronze</label>
       </div>
 
       <div class="form-radio">
-        <input id="prata" type="radio" value="2" v-model="planType" />
+        <input id="prata" type="radio" value="silver" v-model="planType" />
         <label for="prata">Prata</label>
       </div>
 
       <div class="form-radio">
-        <input id="premium" type="radio" value="3" v-model="planType" />
+        <input id="premium" type="radio" value="gold" v-model="planType" />
         <label for="premium">Premium</label>
       </div>
     </div>
@@ -96,7 +96,7 @@ export default {
       email: '',
       password: '',
       confirmPassword: '',
-      planType: '2',
+      planType: 'silver',
 
       errors: {}
     }
@@ -150,7 +150,7 @@ export default {
             if(error.response?.data?.message) {
               alert(error.response.data.message)
             } else {
-              alert('Houve uma falha ao tentar cadastrar')
+              alert('Não foi possível criar a conta nesse momento')
             }
           })
 
