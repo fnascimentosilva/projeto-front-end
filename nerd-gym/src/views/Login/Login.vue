@@ -62,7 +62,7 @@ export default {
           localStorage.setItem("gym_token", response.data.token)
           localStorage.setItem("gym_name", response.data.name)
 
-          this.$router.push('/home')
+          this.$router.push('/dashboard')
           console.log("logado com sucesso")
         })
         .catch(() => {
