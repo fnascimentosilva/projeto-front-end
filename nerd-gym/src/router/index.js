@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../views/Dashboard/Dashboard.vue'
 import Login from '../views/Login/Login.vue'
 import Signup from '../views/Signup/Signup.vue'
+import Alunos from '../views/Alunos/CadastroNovoAluno.vue'
 
 
 const router = createRouter({
@@ -22,6 +23,11 @@ const router = createRouter({
       name: 'Dashboard',
       component: Dashboard
   },
+  {
+    path: '/cadastroAluno',
+    name: 'CadastroAluno',
+    component: Alunos
+},
   ]
 })
 
