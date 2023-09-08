@@ -47,6 +47,7 @@
     </v-card-actions>
   </v-card>
   </div>
+  <v-icon>mdi-account-multiple</v-icon>
 </template>
 
 <script>

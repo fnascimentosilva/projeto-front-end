@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-app-bar color="grey-lighten-3" v-if="renderizarMenu">
+    <v-app-bar color="bg-deep-purple" v-if="renderizarMenu">
       <v-app-bar-title class="titleMenu">Nerd Gym</v-app-bar-title>
 
       <v-btn>
