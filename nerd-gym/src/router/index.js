@@ -3,6 +3,7 @@ import Dashboard from '../views/Dashboard/Dashboard.vue'
 import Login from '../views/Login/Login.vue'
 import Signup from '../views/Signup/Signup.vue'
 import Alunos from '../views/Alunos/CadastroNovoAluno.vue'
+import Exercicios from '../views/Exercicios/GerenciamentoExercicios.vue'
 
 
 const router = createRouter({
@@ -27,6 +28,11 @@ const router = createRouter({
     path: '/cadastroAluno',
     name: 'CadastroAluno',
     component: Alunos
+},
+{
+  path: '/gerenciamento_exercicio',
+  name: 'GerenciamentoExercicio',
+  component: Exercicios
 },
   ]
 })
