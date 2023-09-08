@@ -19,7 +19,8 @@
 
          <v-btn  type="submit" block class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
 
-          
+        </v-row>
+
       </v-container>
 
       
@@ -34,12 +35,13 @@
             > {{nomeExercicio}}</v-text-field>
           </v-col>
 
-          
+          </v-row>
       </v-container>
       
     </v-form>
   </v-card>
 </template>
+
 <script>
 
 
@@ -71,7 +73,7 @@ export default {
         })
           .then(() => {
             alert('Cadastrado com sucesso')
-            this.$router.push('/gerenciamento_exercicios')
+            this.$router.push('/dashboard')
           })
           .catch((error) => {
             console.log(error)
