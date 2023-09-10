@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto" :width="720">
     <div class="d-flex align-center">
-      <v-icon>mdi-account-multiple</v-icon>
+      <v-icon>mdi-arm-flex</v-icon>
       <h1>Exercícios</h1>
     </div>
     <hr />
