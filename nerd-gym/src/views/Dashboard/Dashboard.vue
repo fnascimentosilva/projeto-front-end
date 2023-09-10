@@ -41,9 +41,11 @@
     </v-card-item>
 
     <v-card-actions>
+      <router-link to="/gerenciamento_exercicio">
       <v-btn variant="tonal" color="purple">
         Adicionar
       </v-btn>
+      </router-link>
     </v-card-actions>
   </v-card>
   </div>
