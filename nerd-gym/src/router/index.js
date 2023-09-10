@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '../views/Dashboard/Dashboard.vue'
 import Login from '../views/Login/Login.vue'
 import Signup from '../views/Signup/Signup.vue'
-import Alunos from '../views/Alunos/CadastroNovoAluno.vue'
+import CadastroAlunos from '../views/Alunos/CadastroNovoAluno.vue'
+import ListaAlunos from '../views/Alunos/ListagemAlunos.vue'
 import Exercicios from '../views/Exercicios/GerenciamentoExercicios.vue'
 
 
@@ -27,9 +28,14 @@ const router = createRouter({
       component: Dashboard
   },
   {
+    path: '/listaDeAlunos',
+    name: 'ListaDeAluno',
+    component: ListaAlunos
+},
+  {
     path: '/cadastroAluno',
     name: 'CadastroAluno',
-    component: Alunos
+    component: CadastroAlunos
 },
 {
   path: '/gerenciamento_exercicio',
