@@ -1,10 +1,10 @@
 <template>
   <v-card class="mx-auto" :width="720">
-    <div class="d-flex align-center flex-wrap">
+    <div class="d-flex align-center">
       <v-icon>mdi-account-multiple</v-icon>
       <h1>Alunos</h1>
     </div>
-    <v-form ref="form" @submit.prevent="handleCreateAccount" variant="outlined">
+    <v-form ref="form" @submit="handleCreateAccount" variant="outlined">
       <v-container>
         <v-row>
           <v-col cols="6" md="4">
@@ -24,9 +24,10 @@
               placeholder="example@email.com"
               type="email"
             ></v-text-field>
-            
           </v-col>
+        </v-row>
 
+        <v-row>
           <v-col cols="6" md="4">
             <v-text-field
               v-model="contato"
@@ -36,7 +37,6 @@
               type="phone"
               required
             ></v-text-field>
-           
           </v-col>
           <v-col cols="6" md="4">
             <v-text-field
@@ -54,11 +54,7 @@
       <v-container>
         <v-row>
           <v-col cols="3" md="4">
-            <v-text-field
-              v-model="cep"
-              label="Cep"
-              :rules="cepRules"
-            ></v-text-field>
+            <v-text-field v-model="cep" label="Cep" :rules="cepRules"></v-text-field>
           </v-col>
 
           <v-col cols="7" md="4">
@@ -69,11 +65,7 @@
             ></v-text-field>
           </v-col>
           <v-col cols="2" md="4">
-            <v-text-field
-              v-model="numero"
-              label="Número"
-              :rules="numeroRules"
-            ></v-text-field>
+            <v-text-field v-model="numero" label="Número" :rules="numeroRules"></v-text-field>
           </v-col>
 
           <v-col cols="2" md="4">
@@ -113,33 +105,22 @@
             ></v-select>
           </v-col>
           <v-col cols="3" md="4">
-            <v-text-field
-              v-model="bairro"
-              label="Bairro"
-              :rules="bairroRules"
-            ></v-text-field>
+            <v-text-field v-model="bairro" label="Bairro" :rules="bairroRules"></v-text-field>
           </v-col>
           <v-col cols="3" md="4">
-            <v-text-field
-              v-model="cidade"
-              label="Cidade"
-              :rules="cidadeRules"
-            ></v-text-field>
+            <v-text-field v-model="cidade" label="Cidade" :rules="cidadeRules"></v-text-field>
           </v-col>
           <v-col cols="4" md="4">
             <v-text-field v-model="complemento" label="Complemento"></v-text-field>
           </v-col>
         </v-row>
       </v-container>
-      <v-btn  type="submit" block class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
+      <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
     </v-form>
   </v-card>
 </template>
 <script>
-
-
 import axios from 'axios'
-
 
 export default {
   data() {
@@ -157,8 +138,7 @@ export default {
       complemento: '',
       endereco: {},
 
-      errors:{},
-      
+      errors: {}
     }
   },
   watch: {
@@ -185,10 +165,12 @@ export default {
         })
     },
 
-    handleCreateAccount() {
-      console.log('antes do if')
-       if(this.$refs.form.validate()){
-        console.log('dentro do if antes do axio')
+    async handleCreateAccount() {
+      /* if(this.$refs.form.validate()){ */
+      const { valid } = await this.$refs.form.validate()
+
+      if (valid) {
+        
         axios({
           url: 'http://localhost:3000/students',
           method: 'POST',
@@ -208,7 +190,7 @@ export default {
         })
           .then(() => {
             alert('Cadastrado com sucesso')
-            this.$router.push('/dashboard')
+            this.$router.push('/cadastroAluno')
           })
           .catch((error) => {
             console.log(error)
@@ -218,71 +200,49 @@ export default {
               alert('Não foi possível criar a conta nesse momento')
             }
           })
-   }
- 
+      } else {
+        alert('Preencha os campos obrigatórios!')
+      }
+    }
   },
 
-},
-computed: {
+  computed: {
     nomeRules() {
-      return [
-        (v) => !!v || 'Campo é obrigatório',
-      ];
+      return [(v) => !!v || 'Campo é obrigatório']
     },
     emailRules() {
-      return [
-        (v) => /.+@.+\..+/.test(v) || 'Email deve ser válido',
-      ];
+      return [(v) => /.+@.+\..+/.test(v) || 'Email deve ser válido']
     },
     contatoRules() {
       return [
         (v) => !!v || 'Campo é obrigatório',
-        (v) => /^\d{10}$/.test(v) || 'Telefone deve conter 10 dígitos',
-        
-      ];
+        (v) => /^\d{10}$/.test(v) || 'Telefone deve conter 10 dígitos'
+      ]
     },
     cepRules() {
       return [
         (v) => !!v || 'Campo é obrigatório',
-        
-      ];
+        (v) => (v && v.length >= 8) || 'O CEP deve ter no mínimo 8 dígitos.'
+        ]
     },
     logradouroRules() {
-      return [
-        (v) => !!v || 'Campo é obrigatório',
-        
-      ];
+      return [(v) => !!v || 'Campo é obrigatório']
     },
     numeroRules() {
-      return [
-        (v) => !!v || 'Campo é obrigatório',
-        
-      ];
+      return [(v) => !!v || 'Campo é obrigatório']
     },
     ufRules() {
-      return [
-        (v) => !!v || 'Campo é obrigatório',
-        
-      ];
+      return [(v) => !!v || 'Campo é obrigatório']
     },
     bairroRules() {
-      return [
-        (v) => !!v || 'Campo é obrigatório',
-        
-      ];
+      return [(v) => !!v || 'Campo é obrigatório']
     },
     cidadeRules() {
-      return [
-        (v) => !!v || 'Campo é obrigatório',
-        
-      ];
-    },
-  },
-
+      return [(v) => !!v || 'Campo é obrigatório']
+    }
+  }
 }
-
 </script>
 
 <style scoped>
-
 </style>
