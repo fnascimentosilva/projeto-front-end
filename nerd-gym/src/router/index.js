@@ -6,6 +6,8 @@ import Alunos from '../views/Alunos/CadastroNovoAluno.vue'
 import Exercicios from '../views/Exercicios/GerenciamentoExercicios.vue'
 
 
+
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -34,6 +36,7 @@ const router = createRouter({
   name: 'GerenciamentoExercicio',
   component: Exercicios
 },
+
   ]
 })
 
