@@ -17,7 +17,7 @@
       <v-row class="d-flex justify-space-between">
         <v-col cols="8" md="">
           <v-text-field
-            v-model="nomeExercicio"
+            v-model="aluno"
             label="Digite o nome do aluno"
             :rules="nomeExercicioRules"
             required
@@ -25,7 +25,7 @@
         </v-col>
 
         <v-col cols="2">
-          <v-btn block class="mt-2" variant="tonal" color="purple">Buscar</v-btn>
+          <v-btn @click="buscarAluno()" block class="mt-2" variant="tonal" color="purple">Buscar</v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -69,6 +69,12 @@ export default {
     this.loadAlunos()
   },
 
+  watch: {
+    campoAlunos() {
+      if (this.campoPesquisa.length = 0) this.loadAlunos()
+    }
+  },
+
   methods: {
     loadAlunos() {
       axios({
@@ -81,6 +87,11 @@ export default {
         .catch(() => {
           alert('Não há alunos cadastrados')
         })
+    },
+
+    buscarAluno(){
+        const campoPesquisa = this.aluno
+        this.listaAlunos = this.listaAlunos.filter(item => item.name.includes(campoPesquisa))
     }
   }
 }
