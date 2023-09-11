@@ -5,7 +5,7 @@
       <h1>Exercícios</h1>
     </div>
     <hr />
-    <v-form ref="form" @submit.prevent="handleCreateExercise" variant="outlined">
+    <v-form ref="form" @submit="handleCreateExercise" variant="outlined">
       <v-container>
         <v-row class="d-flex align-center justify-center">
           <v-col cols="8" md="">
