@@ -70,8 +70,8 @@ export default {
   },
 
   watch: {
-    campoAlunos() {
-      if (this.campoPesquisa.length = 0) this.loadAlunos()
+    aluno() {
+      if (this.aluno.length === 0)this.loadAlunos()
     }
   },
 
