@@ -7,7 +7,7 @@
         <router-link to="/dashboard"> Home </router-link>
       </v-btn>
       <v-btn>
-        <router-link to="/"> Alunos </router-link>
+        <router-link to="/listaDeAlunos"> Alunos </router-link>
       </v-btn>
       <v-btn>
         <router-link to="/"> Exercícios </router-link>
