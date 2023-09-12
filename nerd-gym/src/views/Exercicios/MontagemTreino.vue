@@ -4,6 +4,8 @@
       <v-icon>mdi-arm-flex</v-icon>
       <h1>Treino</h1>
     </div>
+
+    
     <v-form ref="form" @submit="handleCreateTreino" variant="outlined">
       <v-container>
         <v-row>
@@ -18,11 +20,15 @@
           </v-col>
 
           <v-col cols="6" md="4">
+           
             <v-select
-              v-model="exercicio"
+              v-model=" exercicioSelecionado"
+            
+              :items="exercicios"
               label="Escolha o exercício"
               :rules="exercicioRules"
             ></v-select>
+           
           </v-col>
         </v-row>
 
@@ -51,10 +57,9 @@
         <v-row>
           <v-col cols="12" md="4">
             <v-textarea
-              v-model="descanso"
+              v-model="observacoes"
               label="Observações"
-              :rules="descansoRules"
-              required
+              
             ></v-textarea>
           </v-col>
         </v-row>
@@ -82,6 +87,8 @@ export default {
         return {
             diaDaSemana: ["segunda-feira", 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado', 'domingo'],
             diaSelecionado: "",
+            exercicios:[{}],
+            exercicioSelecionado:"",
         }
     },
 mounted() {
@@ -91,7 +98,16 @@ mounted() {
 
 methods: {
     carregarExercicios(){
-        
+       axios({
+         url: 'http://localhost:3000/exercises',
+        method: 'GET'
+       }) 
+        .then((response) => {
+          this.exercicios = response.data
+        })
+        .catch(() => {
+          alert('Exercícios não podem ser carregados')
+        })
     }
 },
 
