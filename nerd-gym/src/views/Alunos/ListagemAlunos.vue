@@ -25,7 +25,9 @@
         </v-col>
 
         <v-col cols="2">
-          <v-btn @click="buscarAluno()" block class="mt-2" variant="tonal" color="purple">Buscar</v-btn>
+          <v-btn @click="buscarAluno()" block class="mt-2" variant="tonal" color="purple"
+            >Buscar</v-btn
+          >
         </v-col>
       </v-row>
     </v-container>
@@ -41,9 +43,9 @@
         <tr v-for="aluno in listaAlunos" :key="aluno.id">
           <td>{{ aluno.name }}</td>
           <td class="d-flex justify-space-evenly">
-            <router-link to="/montagem_treino">
-              <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">+TREINO</v-btn>
-            </router-link>
+            <v-btn @click="() => montraTreino(aluno.id)" class="mt-2" variant="tonal" color="purple"
+              >+TREINO</v-btn
+            >
 
             <router-link to="/cadastroAluno">
               <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">VER</v-btn>
@@ -71,7 +73,7 @@ export default {
 
   watch: {
     aluno() {
-      if (this.aluno.length === 0)this.loadAlunos()
+      if (this.aluno.length === 0) this.loadAlunos()
     }
   },
 
@@ -82,6 +84,7 @@ export default {
         method: 'GET'
       })
         .then((response) => {
+          console.log(response.data)
           this.listaAlunos = response.data.students
         })
         .catch(() => {
@@ -89,10 +92,14 @@ export default {
         })
     },
 
-    buscarAluno(){
-        const campoPesquisa = this.aluno
-        this.listaAlunos = this.listaAlunos.filter(item => item.name.includes(campoPesquisa))
-    }
+    buscarAluno() {
+      const campoPesquisa = this.aluno
+      this.listaAlunos = this.listaAlunos.filter((item) => item.name.includes(campoPesquisa))
+    },
+
+    montraTreino(id) {
+      this.$router.push(`/aluno/${id}/montagem_treino/`)
+    },
   }
 }
 </script>

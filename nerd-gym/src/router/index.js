@@ -44,7 +44,7 @@ const router = createRouter({
   component: GerenciamentoExercicios
 },
 {
-  path: '/montagem_treino',
+  path: '/aluno/:id/montagem_treino/',
   name: 'MontagemTreino',
   component: MontagemTreino
 },
