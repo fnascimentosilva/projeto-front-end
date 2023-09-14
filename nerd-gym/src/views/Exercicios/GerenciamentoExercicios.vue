@@ -7,7 +7,7 @@
     <hr />
     <v-form ref="form" @submit.prevent="handleCreateExercise" variant="outlined">
       <v-container>
-        <v-row class="d-flex align-center justify-center">
+        <v-row class="d-flex align-center ">
           <v-col cols="8" md="">
             <v-text-field
               v-model="nomeExercicio"
@@ -17,8 +17,8 @@
             ></v-text-field>
           </v-col>
 
-          <v-col cols="2">
-            <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
+          <v-col cols="3">
+            <v-btn type="submit"  class="mb-5" variant="tonal" color="purple">Cadastrar</v-btn>
           </v-col>
         </v-row>
       </v-container>
