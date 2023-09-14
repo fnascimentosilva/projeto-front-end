@@ -2,7 +2,7 @@
   <v-card class="mx-auto" :width="720">
     <div class="d-flex align-center">
       <v-icon>mdi-arm-flex</v-icon>
-      <h1>Treino</h1>
+      <h1>Treino</h1>{{student_id}}
     </div>
 
     <v-form ref="form" @submit="handleCreateTreino" variant="outlined">
@@ -32,7 +32,7 @@
         <v-row>
           <v-col cols="4" md="4">
             <v-text-field
-              v-model="repetições"
+              v-model="repeticoes"
               label="Repetições"
               :rules="repetiçõesRules"
               required
@@ -41,6 +41,7 @@
 
           <v-col cols="4" md="4">
             <v-text-field v-model="peso" label="Peso" :rules="pesoRules" required></v-text-field>
+            {{repeticoes}}
           </v-col>
           <v-col cols="4" md="4">
             <v-text-field
@@ -82,8 +83,10 @@ export default {
         'domingo'
       ],
       diaSelecionado: '',
-      exercicios: [{}],
-      exercicioSelecionado: ''
+      exercicios: [],
+      exercicioSelecionado: '',
+      repeticoes:"",
+      student_id: this.$route.params.id,
     }
   },
   mounted() {
@@ -103,6 +106,14 @@ export default {
           alert('Exercícios não podem ser carregados')
         })
     }
+  },
+
+  computed:{
+    repetiçõesRules() {
+      return [
+        (v) => !!v || 'Precisa fazer no mínimo uma repetição'
+        ]
+    },
   }
 }
 </script>
