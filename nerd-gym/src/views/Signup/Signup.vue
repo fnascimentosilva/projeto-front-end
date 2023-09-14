@@ -61,17 +61,17 @@
       <p>Selecione um tipo de plano:</p>
 
       <div class="form-radio">
-        <input id="bronze" type="radio" value="1" v-model="planType" />
+        <input id="bronze" type="radio" value="bronze" v-model="planType" />
         <label for="bronze">Bronze</label>
       </div>
 
       <div class="form-radio">
-        <input id="prata" type="radio" value="2" v-model="planType" />
+        <input id="prata" type="radio" value="prata" v-model="planType" />
         <label for="prata">Prata</label>
       </div>
 
       <div class="form-radio">
-        <input id="premium" type="radio" value="3" v-model="planType" />
+        <input id="premium" type="radio" value="ouro" v-model="planType" />
         <label for="premium">Premium</label>
       </div>
     </div>
