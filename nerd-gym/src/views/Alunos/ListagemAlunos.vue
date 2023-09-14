@@ -43,11 +43,13 @@
         <tr v-for="aluno in listaAlunos" :key="aluno.id">
           <td>{{ aluno.name }}</td>
           <td class="d-flex justify-space-evenly">
-            <v-btn @click="() => montraTreino(aluno.id)" class="mt-2" variant="tonal" color="purple"
+            <router-link :to="`/aluno/${aluno.id}/montagem_treino/`">
+            <v-btn  class="mt-2" variant="tonal" color="purple"
               >+TREINO</v-btn
             >
+            </router-link>
 
-            <router-link to="/cadastroAluno">
+            <router-link :to="`/aluno/${aluno.id}/montagem_treino/`">
               <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">VER</v-btn>
             </router-link>
           </td>
@@ -97,9 +99,7 @@ export default {
       this.listaAlunos = this.listaAlunos.filter((item) => item.name.includes(campoPesquisa))
     },
 
-    montraTreino(id) {
-      this.$router.push(`/aluno/${id}/montagem_treino/`)
-    },
+   
   }
 }
 </script>
