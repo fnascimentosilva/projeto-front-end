@@ -6,6 +6,7 @@ import CadastroAlunos from '../views/Alunos/CadastroNovoAluno.vue'
 import ListaAlunos from '../views/Alunos/ListagemAlunos.vue'
 import GerenciamentoExercicios from '../views/Exercicios/GerenciamentoExercicios.vue'
 import MontagemTreino from '../views/Exercicios/MontagemTreino.vue'
+import VerTreinoAluno from '../views/Exercicios/VerTreinoAluno.vue'
 
 
 
@@ -44,9 +45,14 @@ const router = createRouter({
   component: GerenciamentoExercicios
 },
 {
-  path: '/aluno/:id/montagem_treino/',
+  path: '/aluno/:id/montagem_treino',
   name: 'MontagemTreino',
   component: MontagemTreino
+},
+{
+  path: '/aluno/:name/visualizar_treino',
+  name: 'VerTreino',
+  component: VerTreinoAluno
 },
 
   ]
