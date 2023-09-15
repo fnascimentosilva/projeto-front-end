@@ -4,7 +4,8 @@ import Login from '../views/Login/Login.vue'
 import Signup from '../views/Signup/Signup.vue'
 import CadastroAlunos from '../views/Alunos/CadastroNovoAluno.vue'
 import ListaAlunos from '../views/Alunos/ListagemAlunos.vue'
-import Exercicios from '../views/Exercicios/GerenciamentoExercicios.vue'
+import GerenciamentoExercicios from '../views/Exercicios/GerenciamentoExercicios.vue'
+import MontagemTreino from '../views/Exercicios/MontagemTreino.vue'
 
 
 
@@ -40,7 +41,12 @@ const router = createRouter({
 {
   path: '/gerenciamento_exercicio',
   name: 'GerenciamentoExercicio',
-  component: Exercicios
+  component: GerenciamentoExercicios
+},
+{
+  path: '/aluno/:id/montagem_treino/',
+  name: 'MontagemTreino',
+  component: MontagemTreino
 },
 
   ]
