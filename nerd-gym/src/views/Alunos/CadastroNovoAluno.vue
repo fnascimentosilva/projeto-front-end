@@ -188,7 +188,8 @@ export default {
             complement: this.complemento
           }
         })
-          .then(() => {
+          .then((response) => {
+            localStorage.setItem("student_name", response.data.name)
             alert('Cadastrado com sucesso')
             this.$router.push('/cadastroAluno')
           })
