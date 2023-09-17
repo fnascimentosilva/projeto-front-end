@@ -27,3 +27,7 @@ Foram utilizadas tecnologias que foram abordadas no I módulo devinHouse tais co
 - 2 - O usuario tera que informar seus dados, nome completo, email, senha e um tipo de plano, e direcionado a tela login
 - 3 - logando com seu usuario sera direcionado ao home do projeto, onde terá acesso aos alunos matriculados e acesso a matricular novos alunos, além de gerenciamento e cadastro de novos exercícios podendo assim executar a montagem dos treinos dos seus alunos por dia de semana.
 - 4 - Melhorias Futuras: na tela montagem de treino ao aluno, ao invés de castrar um exercicio por vez no select, poder marcar mais de um, sendo assim nao precisa ir e voltar na tela para momtar um treino de um dia.
+
+## Link do vídeo
+
+https://drive.google.com/file/d/1kJ7lt8HbeQnbpG4twwOk9oWatXs2Gl4v/view?usp=sharing
