@@ -43,13 +43,13 @@
         <tr v-for="aluno in listaAlunos" :key="aluno.id">
           <td>{{ aluno.name }}</td>
           <td class="d-flex justify-space-evenly">
-            <router-link :to="`/aluno/${aluno.id}/montagem_treino/`">
+            <router-link :to="`/aluno/${aluno.id}/montagem_treino`">
             <v-btn  class="mt-2" variant="tonal" color="purple"
               >+TREINO</v-btn
             >
             </router-link>
 
-            <router-link :to="`/aluno/${aluno.id}/montagem_treino/`">
+            <router-link :to="`/aluno/${aluno.id}/visualizar_treino`">
               <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">VER</v-btn>
             </router-link>
           </td>
