@@ -7,7 +7,7 @@
     <v-form ref="form" @submit="handleCreateAccount" variant="outlined">
       <v-container>
         <v-row>
-          <v-col cols="6" md="4">
+          <v-col cols="6" md="6" sm="12">
             <v-text-field
               v-model="nomeCompleto"
               label="Nome Completo"
@@ -16,7 +16,7 @@
             ></v-text-field>
           </v-col>
 
-          <v-col cols="6" md="4">
+          <v-col cols="6" md="6" sm="12">
             <v-text-field
               v-model="email"
               label="Email"
@@ -26,9 +26,8 @@
             ></v-text-field>
           </v-col>
         </v-row>
-
         <v-row>
-          <v-col cols="6" md="4">
+          <v-col cols="6" md="6" sm="12">
             <v-text-field
               v-model="contato"
               label="Contato"
@@ -38,7 +37,7 @@
               required
             ></v-text-field>
           </v-col>
-          <v-col cols="6" md="4">
+          <v-col cols="6" md="6" sm="12">
             <v-text-field
               v-model="date_birth"
               label="Data de Nascimento"
@@ -53,11 +52,11 @@
 
       <v-container>
         <v-row>
-          <v-col cols="3" md="4">
+          <v-col cols="3" md="4" sm="12">
             <v-text-field v-model="cep" label="Cep" :rules="cepRules"></v-text-field>
           </v-col>
 
-          <v-col cols="7" md="4">
+          <v-col cols="7" md="4" sm="12">
             <v-text-field
               v-model="logradouro"
               label="Logradouro"
@@ -68,7 +67,7 @@
             <v-text-field v-model="numero" label="Número" :rules="numeroRules"></v-text-field>
           </v-col>
 
-          <v-col cols="2" md="4">
+          <v-col cols="2" md="3" sm="12">
             <v-select
               v-model="uf"
               label="UF"
@@ -104,18 +103,20 @@
               ]"
             ></v-select>
           </v-col>
-          <v-col cols="3" md="4">
+          <v-col cols="3" md="3" sm="12">
             <v-text-field v-model="bairro" label="Bairro" :rules="bairroRules"></v-text-field>
           </v-col>
-          <v-col cols="3" md="4">
+          <v-col cols="3" md="3" sm="12">
             <v-text-field v-model="cidade" label="Cidade" :rules="cidadeRules"></v-text-field>
           </v-col>
-          <v-col cols="4" md="4">
+          <v-col cols="4" md="3" sm="12">
             <v-text-field v-model="complemento" label="Complemento"></v-text-field>
           </v-col>
         </v-row>
       </v-container>
-      <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
+      <v-card-actions class="d-flex justify-end">
+      <v-btn type="submit" class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
+      </v-card-actions>
     </v-form>
   </v-card>
 </template>
@@ -166,11 +167,9 @@ export default {
     },
 
     async handleCreateAccount() {
-     
       const { valid } = await this.$refs.form.validate()
 
       if (valid) {
-        
         axios({
           url: 'http://localhost:3000/students',
           method: 'POST',
@@ -189,9 +188,8 @@ export default {
           }
         })
           .then(() => {
-            
             alert('Cadastrado com sucesso')
-            this.$router.push('/cadastroAluno')
+            this.$router.push('/dashboard')
           })
           .catch((error) => {
             console.log(error)
@@ -217,14 +215,14 @@ export default {
     contatoRules() {
       return [
         (v) => !!v || 'Campo é obrigatório',
-        (v) => /^\d{10}$/.test(v) || 'Telefone deve conter 10 dígitos'
+        (v) => /^\d{11}$/.test(v) || 'Telefone deve conter 11 dígitos'
       ]
     },
     cepRules() {
       return [
         (v) => !!v || 'Campo é obrigatório',
         (v) => (v && v.length >= 8) || 'O CEP deve ter no mínimo 8 dígitos.'
-        ]
+      ]
     },
     logradouroRules() {
       return [(v) => !!v || 'Campo é obrigatório']

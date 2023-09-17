@@ -3,13 +3,13 @@
     <div class="d-flex align-center">
       <v-icon>mdi-arm-flex</v-icon>
       <h1>Treino</h1>
-      {{ student_id }}
+      
     </div>
 
     <v-form ref="form" @submit.prevent="cadastrarTreino" variant="outlined">
       <v-container>
         <v-row>
-          <v-col cols="6" md="4">
+          <v-col cols="6" md="6">
             <v-select
               v-model="diaSelecionado"
               :items="diaDaSemana"
@@ -20,7 +20,7 @@
             ></v-select>
           </v-col>
 
-          <v-col cols="6" md="4">
+          <v-col cols="6" md="6">
             <v-select
               v-model="exercicioSelecionado"
               item-title="description"
@@ -62,14 +62,16 @@
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" md="4">
+          <v-col cols="12" md="12">
             <v-textarea v-model="observacoes" label="Observações"></v-textarea>
           </v-col>
         </v-row>
       </v-container>
 
       <v-card-actions class="d-flex justify-end">
-        <v-btn class="mt-2" variant="tonal" color="purple">Cancelar</v-btn>
+        <router-link to="/listaDeAlunos">
+        <v-btn class="mt-2 mr-2" variant="tonal" color="purple">Voltar</v-btn>
+        </router-link>
 
        
         <v-btn type="submit" class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
