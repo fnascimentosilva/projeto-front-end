@@ -166,7 +166,7 @@ export default {
     },
 
     async handleCreateAccount() {
-      /* if(this.$refs.form.validate()){ */
+     
       const { valid } = await this.$refs.form.validate()
 
       if (valid) {
@@ -188,8 +188,8 @@ export default {
             complement: this.complemento
           }
         })
-          .then((response) => {
-            localStorage.setItem("student_name", response.data.name)
+          .then(() => {
+            
             alert('Cadastrado com sucesso')
             this.$router.push('/cadastroAluno')
           })
