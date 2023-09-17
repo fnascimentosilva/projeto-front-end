@@ -1,10 +1,12 @@
 <template>
-  <form @submit.prevent="handleCreateAccount" class="form-login">
-    <v-icon
-      size="large"
-      color="blue-darken-2"
-      icon="mdi-dumbbell"
-    ></v-icon>
+<v-card class="mx-auto" :width="720">
+  <div class="d-flex align-center">
+      <v-icon size="large" >mdi-dumbbell</v-icon>
+      
+      <h1>Alunos</h1>
+    </div>
+  <v-form @submit.prevent="handleCreateAccount" variant="tonal">
+   
     <h2>Criar conta</h2>
 
     <div class="form-element">
@@ -77,11 +79,12 @@
     </div>
 
     
-    <button>Cadastrar</button>
-   
-    <v-btn variant="tonal" :width="140" ><router-link to="/"> Voltar</router-link></v-btn>
-    
-  </form>
+    <v-btn type="submit">Cadastrar</v-btn>
+   <router-link to="/">
+    <v-btn variant="tonal" :width="140" > Voltar</v-btn>
+    </router-link>
+  </v-form>
+  </v-card>
 </template>
 
 <script>
@@ -229,18 +232,5 @@ export default {
   border-color: red;
 }
 
-/* button {
-  width: 80%;
-  height: 54px;
-  background-color: purple;
 
-  color: white;
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-}
-
-button:hover {
-  background-color: #286ee0;
-} */
 </style>
