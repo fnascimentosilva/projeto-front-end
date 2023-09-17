@@ -70,7 +70,11 @@
 
       <v-card-actions class="d-flex justify-end">
         <v-btn class="mt-2" variant="tonal" color="purple">Cancelar</v-btn>
+
+       
         <v-btn type="submit" class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
+
+        
       </v-card-actions>
     </v-form>
   </v-card>
@@ -149,7 +153,7 @@ export default {
       } else {
         alert('Preencha os campos obrigatórios!')
       }
-    }
+    },
   },
 
   computed: {
