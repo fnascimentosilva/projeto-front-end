@@ -23,7 +23,7 @@
             v-for="workout in listaTreinosDay"
             :key="workout.id"
             v-model="workoutDay"
-            :label="`${workout.exercise_description} - Peso: ${workout.weight} kg - Repetições: ${workout.repetitions} - Pausa: ${workout.break_time} Segundos`"
+            :label="`${workout.exercise_description} - Peso: ${workout.weight} kg - Repetições: ${workout.repetitions} - Descanso: ${workout.break_time} Segundos`"
             @change="addExercise(workout)"
           ></v-checkbox>
         </li>
@@ -76,7 +76,7 @@
               <th>Exercício</th>
               <th>Peso</th>
               <th>Repetições</th>
-              <th>Pausa (s)</th>
+              <th>Descanso</th>
             </tr>
           </thead>
           <tbody>
@@ -97,7 +97,7 @@
               <th>Exercício</th>
               <th>Peso</th>
               <th>Repetições</th>
-              <th>Pausa (s)</th>
+              <th>Descanso</th>
             </tr>
           </thead>
           <tbody>
@@ -117,7 +117,7 @@
               <th>Exercício</th>
               <th>Peso</th>
               <th>Repetições</th>
-              <th>Pausa (s)</th>
+              <th>Descanso</th>
             </tr>
           </thead>
           <tbody>
@@ -138,7 +138,7 @@
               <th>Exercício</th>
               <th>Peso</th>
               <th>Repetições</th>
-              <th>Pausa (s)</th>
+              <th>Descanso</th>
             </tr>
           </thead>
           <tbody>
@@ -159,7 +159,7 @@
               <th>Exercício</th>
               <th>Peso</th>
               <th>Repetições</th>
-              <th>Pausa (s)</th>
+              <th>Descanso</th>
             </tr>
           </thead>
           <tbody>
@@ -179,7 +179,7 @@
               <th>Exercício</th>
               <th>Peso</th>
               <th>Repetições</th>
-              <th>Pausa (s)</th>
+              <th>Descanso</th>
             </tr>
           </thead>
           <tbody>
