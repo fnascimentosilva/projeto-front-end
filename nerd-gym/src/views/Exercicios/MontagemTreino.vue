@@ -69,7 +69,9 @@
       </v-container>
 
       <v-card-actions class="d-flex justify-end">
-        <v-btn class="mt-2" variant="tonal" color="purple">Cancelar</v-btn>
+        <router-link to="/listaDeAlunos">
+        <v-btn class="mt-2 mr-2" variant="tonal" color="purple">Voltar</v-btn>
+        </router-link>
 
        
         <v-btn type="submit" class="mt-2" variant="tonal" color="purple">Cadastrar</v-btn>
