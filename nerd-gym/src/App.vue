@@ -10,7 +10,7 @@
         <router-link to="/listaDeAlunos"> Alunos </router-link>
       </v-btn>
       <v-btn>
-        <router-link to="/"> Exercícios </router-link>
+        <router-link to="/gerenciamento_exercicio"> Exercícios </router-link>
       </v-btn>
       <v-btn>
         <router-link to="/"> Sair </router-link>
