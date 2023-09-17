@@ -3,21 +3,22 @@
     <v-card
       color="transparent"
       class="mx-auto"
-      prepend-icon="mdi mdi-account"
+     
       style="width: 1215px"
       v-model="diaFixo"
       value="segunda"
     >
-      <!--  <div v-if="listaTreinos.length === 0">
-        <h2>{{ listaTreinos[0].student_name }}</h2>
-      </div> -->
-
+      
       <v-card-text>
-        <h1>Treino do dia</h1>
+       
+        <h2>Treinos - {{ student_name }}</h2>
+        
+        
       </v-card-text>
 
       <ul>
         <li>
+          <h2>Hoje</h2>
           <v-checkbox
             v-for="workout in listaTreinosDay"
             :key="workout.id"
@@ -31,7 +32,7 @@
   </v-form>
 
   <v-card>
-    <v-toolbar color="blue">
+    <v-toolbar color="purple">
       <v-toolbar-title>Treinos da Semana</v-toolbar-title>
 
       <template v-slot:extension>
@@ -54,7 +55,7 @@
               <th>Exercício</th>
               <th>Peso</th>
               <th>Repetições</th>
-              <th>Pausa (s)</th>
+              <th>Descanso</th>
             </tr>
           </thead>
           <tbody>
@@ -202,6 +203,7 @@ export default {
   data() {
     return {
       studentId: this.$route.params.id,
+      student_name:this.$route.params.name,
       listaTreinos: [],
       listaTreinosDay: [],
       dias: '',
