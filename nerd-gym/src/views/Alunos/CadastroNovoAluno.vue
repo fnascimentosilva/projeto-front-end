@@ -189,7 +189,7 @@ export default {
         })
           .then(() => {
             alert('Cadastrado com sucesso')
-            this.$router.push('/cadastroAluno')
+            this.$router.push('/dashboard')
           })
           .catch((error) => {
             console.log(error)
@@ -215,7 +215,7 @@ export default {
     contatoRules() {
       return [
         (v) => !!v || 'Campo é obrigatório',
-        (v) => /^\d{10}$/.test(v) || 'Telefone deve conter 10 dígitos'
+        (v) => /^\d{11}$/.test(v) || 'Telefone deve conter 11 dígitos'
       ]
     },
     cepRules() {
