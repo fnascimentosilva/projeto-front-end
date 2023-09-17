@@ -1,33 +1,32 @@
 <template>
-   
+  <v-sheet width="350" class="mx-auto">
+    <v-card>
+      <v-form ref="form" @submit.prevent="handleLogin">
+        <v-text-field   v-model="email" label="Digite o email" :rules="emailRules"
+        placeholder="example@email.com"
+          type="email"></v-text-field>
 
-    <form @submit.prevent="handleLogin" class="form-login">
-    <div class="error-box">
-      <ul>
-        <li v-if="errorInputEmail">{{ errorInputEmail }}</li>
-        <li v-if="errorInputPassword">{{ errorInputPassword }}</li>
-      </ul>
-    </div>
-    <v-icon
-      size="large"
-      color="blue-darken-2"
-      icon="mdi-dumbbell"
-    ></v-icon>
-    
+        <v-text-field
+          v-model="password"
+          label="Digite a senha"
+          :rules="passwordRules"
+          
+        ></v-text-field>
 
-    <input placeholder="Digite o email" v-model="email" />
+        <v-btn type="submit" block variant="tonal"  color="purple" class="mt-2">Login</v-btn>
 
-    <input type="password" placeholder="Digite a senha" v-model="password" />
+        <p class="mt-6">
+          Ainda não tem conta?<router-link to="/cadastro">Cadastre-se</router-link>
+        </p>
+      </v-form>
+    </v-card>
+  </v-sheet>
 
-    <button type="submit">Logar</button>
-
-    <p>Ainda não tem conta?<router-link to="/cadastro">Cadastre-se</router-link></p>
-  </form>
+  
 </template>
 
 <script>
 import axios from 'axios'
-
 
 export default {
   data() {
@@ -40,15 +39,14 @@ export default {
     }
   },
   methods: {
-    handleLogin() {
-      this.errorInputEmail = ''
-      this.errorInputPassword = ''
+   async handleLogin() {
+     
+      const { valid } = await this.$refs.form.validate()
 
-      if (this.email === '') this.errorInputEmail = 'Digite o email'
-      if (this.password === '') this.errorInputPassword = 'Digite a senha'
-
-      if (this.errorInputEmail === '' && this.errorInputPassword === '') {
-        
+      if (valid)
+      
+      
+      {
         axios({
           url: 'http://localhost:3000/sessions',
           method: 'POST',
@@ -57,87 +55,36 @@ export default {
             password: this.password
           }
         })
-        .then((response) => {
-          
-          localStorage.setItem("gym_token", response.data.token)
-          localStorage.setItem("gym_name", response.data.name)
+          .then((response) => {
+            localStorage.setItem('gym_token', response.data.token)
+            localStorage.setItem('gym_name', response.data.name)
 
-          this.$router.push('/dashboard')
-          console.log("logado com sucesso")
-        })
-        .catch(() => {
-          alert("Falha ao realizar login")
-        })
-
+            this.$router.push('/dashboard')
+            console.log('logado com sucesso')
+          })
+          .catch(() => {
+            alert('Falha ao realizar login')
+          })
       }
     },
     outroMetodo() {}
+  },
+
+  computed: {
+    emailRules() {
+      return [
+        (v) => !!v || 'Campo é obrigatório',
+        (v) => /.+@.+\..+/.test(v) || 'Email deve ser válido'
+      ]
+    },
+
+    passwordRules() {
+      return [
+        (v) => !!v || 'Campo é obrigatório',
+        (v) => (v && v.length >= 8) || 'O CEP deve ter no mínimo 8 dígitos.'
+      ]
+    }
   }
 }
 </script>
 
-<style scoped>
-.error-box {
-  background: tomato;
-  width: 80%;
-  color: #fff;
-}
-
-.form-login {
-  margin: 40px auto;
-  width: 40%;
-
-  border-radius: 4px;
-  border: 1px solid #383737;
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-
-  padding: 10px;
-}
-
-.input-area {
-  width: 80%;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.input-area input {
-  width: 100%;
-}
-
-.texto-erro {
-  color: red;
-  margin: 4px;
-}
-
-input {
-  height: 54px;
-  width: 80%;
-  border-radius: 8px;
-  border: 1px solid #756767;
-  outline: none;
-}
-
-button {
-  width: 80%;
-  height: 54px;
-  background-color: #3578e5;
-
-  color: white;
-  font-size: 18px;
-  border-radius: 8px;
-  border: none;
-}
-
-button:hover {
-  background-color: #286ee0;
-}
-
-.input-error {
-  border-color: red;
-}
-</style>
