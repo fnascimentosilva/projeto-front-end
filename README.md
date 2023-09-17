@@ -7,6 +7,7 @@ Nerd Gym é um software desenvolvido para o uso de academias em geral, podendo s
 ## Tecnologias Utilizadas no projeto
 Foram utilizadas tecnologias que foram abordadas no I módulo devinHouse tais como:
 
+- Trello para organização do projeto
 - HTML
 - CSS
 - Javascript
