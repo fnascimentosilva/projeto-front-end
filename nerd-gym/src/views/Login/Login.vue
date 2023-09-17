@@ -81,7 +81,7 @@ export default {
     passwordRules() {
       return [
         (v) => !!v || 'Campo é obrigatório',
-        (v) => (v && v.length >= 8) || 'O CEP deve ter no mínimo 8 dígitos.'
+        (v) => (v && v.length >= 8) || 'A senha deve ter no mínimo 8 dígitos.'
       ]
     }
   }
