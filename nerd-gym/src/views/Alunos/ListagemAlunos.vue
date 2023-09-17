@@ -49,7 +49,7 @@
             >
             </router-link>
 
-            <router-link :to="`/aluno/${aluno.id}/visualizar_treino`">
+            <router-link :to="`/aluno/${aluno.id}/visualizar_treino/${aluno.name}`">
               <v-btn type="submit" block class="mt-2" variant="tonal" color="purple">VER</v-btn>
             </router-link>
           </td>
